@@ -28,6 +28,16 @@ body {
   height: 100%;
   flex: 1; }
 
+.maintop, .mainbottom {
+  width: 100%;
+  height: 50px; }
+
+.leftcolumn, .rightcolumn {
+  width: 150px; }
+
+.pad {
+  padding: 8px; }
+
 .centralcolumn {
   width: 100%;
   background-color: cadetblue; }
@@ -37,18 +47,14 @@ body {
   flex-direction: row;
   width: 100%; }
 
-.maintop, .mainbottom {
-  width: 100%;
-  height: 50px; }
-
 .maintop {
-  background-color: blueviolet; }
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
 
 .mainbottom {
   background-color: greenyellow; }
-
-.leftcolumn, .rightcolumn {
-  width: 150px; }
 
 .leftcolumn {
   background-color: cornflowerblue; }

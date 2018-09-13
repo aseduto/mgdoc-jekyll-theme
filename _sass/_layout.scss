@@ -17,10 +17,27 @@
     
 }
 
+%row
+{
+    width: 100%;
+    height: $sizerow;
+}
+
+%column
+{
+   width: $sizecolumn;
+}
+
+.pad
+{
+    padding: 8px;
+}
+
 .centralcolumn
 {
     width: 100%;
     background-color: cadetblue;
+   
 }
 
 .mainrow
@@ -30,16 +47,17 @@
     width: 100%
 }
 
-%row
-{
-    width: 100%;
-    height: $sizerow;
-}
+
 
 .maintop
 {
     background-color: blueviolet;
     @extend %row;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
 }
 
 .mainbottom
@@ -48,10 +66,7 @@
     background-color: greenyellow;
 }
 
-%column
-{
-   width: $sizecolumn;
-}
+
 
 .leftcolumn
 {
@@ -64,3 +79,5 @@
     @extend %column;
     background-color: grey;
 }
+
+
