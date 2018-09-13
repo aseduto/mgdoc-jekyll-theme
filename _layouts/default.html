@@ -8,8 +8,8 @@
     {% include header.html %}
 
     
-    <div class="maincontainer">
-        <div class="maintop pad">
+    
+        <div class="maintop">
             
             <div>
                 hamburgher
@@ -24,7 +24,7 @@
         </div>
             <div class="maincontent mainrow">
                 
-                    <div class="leftcolumn pad">
+                    <div class="leftcolumn">
                             <ul>
                                 {% for post in site.posts %}
                                     <li>
@@ -33,17 +33,18 @@
                                 {% endfor %}
                             </ul>
                     </div>
-                    <div class="centralcolumn pad">
+                    <div class="centralcolumn">
                             {{ content }}
                     </div>
-                    <div class="rightcolumn pad ">
-                        {% include toc.html html=content sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
+                    <div class="rightcolumn">
+                            <p class="toc_title">Contents</p>
+                            {% include toc.html html=content sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
                     </div>
 
                 
             </div>
-        <div class="mainbottom pad">|</div>
-    </div>
+        <div class="mainbottom ">|</div>
+  
         
     
 
