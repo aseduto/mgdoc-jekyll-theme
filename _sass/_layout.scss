@@ -1,0 +1,66 @@
+
+
+.maincontainer
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
+}
+
+.maincontent
+{
+    background-color: aquamarine;
+    height: 100%;
+    flex: 1;
+    
+    
+}
+
+.centralcolumn
+{
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.mainrow
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+%row
+{
+    width: 100%;
+    height: $sizerow;
+}
+
+.maintop
+{
+    background-color: blueviolet;
+    @extend %row;
+}
+
+.mainbottom
+{
+    @extend %row;
+    background-color: greenyellow;
+}
+
+%column
+{
+   width: $sizecolumn;
+}
+
+.leftcolumn
+{
+    @extend %column;
+    background-color: cornflowerblue
+}
+
+.rightcolumn
+{
+    @extend %column;
+    background-color: grey;
+}
