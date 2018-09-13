@@ -80,4 +80,22 @@
     background-color: grey;
 }
 
+@include media-query($on-palm)
+{
+    .leftcolumn
+    {
+        display: none;
+    }
+
+    .rightcolumn
+    {
+        display: none;
+    }
+
+    .maintop
+    {
+        justify-content: flex-start;
+    }
+}
+
 

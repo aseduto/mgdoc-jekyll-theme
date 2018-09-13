@@ -61,3 +61,13 @@ body {
 
 .rightcolumn {
   background-color: grey; }
+
+@media screen and (max-width: 768px) {
+  .leftcolumn {
+    display: none; }
+
+  .rightcolumn {
+    display: none; }
+
+  .maintop {
+    justify-content: flex-start; } }
