@@ -4,7 +4,7 @@ title: Build
 tags: [help]
 ---
 
-# Building mg
+# Building mg on Linux or Windows
 mg can be built in Linux or Windows.
 In both cases you can use gyp to build mg. In linux you can also use autotools for building.
 For building mg in linux you need at least gcc 5 or later version since mg uses c++ 11.

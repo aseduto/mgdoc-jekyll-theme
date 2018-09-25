@@ -26,10 +26,16 @@
                 
                     <div class="leftcolumn">
                             <ul>
-                                {% for post in site.posts %}
+                                {% for page in site.pages %}
+                                    {% if page.path contains 'content'  %}
+                                   
                                     <li>
-                                    <a href="{{ post.url }}">{{ post.title }}</a>
+                                    <a href="{{ page.url }}">{{ page.title }}</a>
+                                    {% assign pagehtml = page.content | markdownify%}
+                                    {% include toc.html html=pagehtml baseurl=page.url sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
+
                                     </li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                     </div>
