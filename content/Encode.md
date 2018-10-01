@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Encode
+title: Encode Files for mg
 tags: [help]
 ---
 
-# Encode Files for mg
+
 
 In the beginning you should have a file you want to play in a web page or in a mobile application using adaptive streaming instead of progressive download.
 
@@ -12,7 +12,7 @@ The first thing you need is [*ffmpeg*](https://ffmpeg.org/download.html). A free
 
 The basic command to create each of the needed file should be something similar to:
 
-## Bash
+# Encode with Bash
 ```bash
 ffmpeg -i [input file] -vf "scale=w=1280:h=720" \
 -codec:v libx264 -profile:v high -level 31 -b:v 750k \
@@ -20,7 +20,7 @@ ffmpeg -i [input file] -vf "scale=w=1280:h=720" \
 -minrate 750k -maxrate 750k -bufsize 750k \
 -b:a 96k -codec:a aac -profile:a aac_low -ar 44100 -ac 2 mg_750.mp4
 ```
-## Powershell
+# Encode with Powershell
 ```powershell
 ffmpeg -i [input file] -vf "scale=w=1280:h=720" `
 -codec:v libx264 -profile:v high -level 31 -b:v 750k `
@@ -35,6 +35,8 @@ In the above command this are the parameter used and their explanation:
  * *-codec* this the codec. You should mainly use **libx264** and **aac**.
  * *-profile* and *-level* this is the h264 profile. For maximum compatibility use **high**.
  * *-b:v* this is the video bit rate. You should change this parameter together with the video size for each output file. 
+
+# Sample Encoding Session
 
 You can use this function to simplify the encoding and setting the file path of the source:
 ## Bash Function

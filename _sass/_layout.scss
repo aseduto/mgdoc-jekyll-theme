@@ -10,10 +10,7 @@ body
 
 .maincontent
 {
-    background-color: aquamarine;
-    flex: 1 0 auto;
-    
-    
+        flex: 1 0 auto;
 }
 
 %row
@@ -29,11 +26,10 @@ body
    
 }
 
-
 .centralcolumn
 {
     width: 100%;
-    background-color: cadetblue;
+    background-color: #ffffff;
     margin: $spacing-unit;
 }
 
@@ -42,11 +38,6 @@ body
     display: flex;
     flex-direction: row;
     width: 100%
-}
-
-.right_toc
-{
-    font-size: $small-font-size;
 }
 
 
@@ -71,12 +62,9 @@ body
     flex: none;
 }
 
-
-
 .leftcolumn
 {
     @extend %column;
-    background-color: cornflowerblue
 }
 
 .rightcolumn
@@ -94,7 +82,6 @@ body
     li, ul,  ul li{
         list-style: outside none none !important;
     }
-
 }
 
 @include media-query($on-palm)
@@ -117,12 +104,6 @@ body
 
 
 
-
-
-.toc_title {
-    font-weight: 700;
-    text-align: center;
-}
 
 
 

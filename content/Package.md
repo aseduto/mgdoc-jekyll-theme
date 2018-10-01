@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Package
+title: Package media file for play
 tags: [help]
 ---
 
@@ -35,10 +35,10 @@ For instance if you followed the [explanation to encode a media file](./encode) 
 
 So your command line should be:
 
-## Bash
+# Bash
 ```bash
-mkdir dash
-mg -k:dash -o:./dash \
+mkdir adaptive
+mg -k:adaptive -o:./dash \
 -i:./test_1024x576_h264-750Kb_aac-lc.mp4 -b:750 -s:0 -e:0 \
 -j:./test_1280x720_h264-1200Kb_aac-lc.mp4 -b:1200 \
 -j:./test_1280x720_h264-2000Kb_aac-lc.mp4 -b:2000 \
@@ -47,16 +47,21 @@ mg -k:dash -o:./dash \
 -j:./test_512x288_h264-320Kb_aac-lc.mp4 -b:320
 ```
 
-## Powershell
+# Powershell
 ```powershell
-mkdir dash
-mg -k:dash -o:./dash \
--i:./test_1024x576_h264-750Kb_aac-lc.mp4 -b:750 -s:0 -e:0 `
--j:./test_1280x720_h264-1200Kb_aac-lc.mp4 -b:1200 `
--j:./test_1280x720_h264-2000Kb_aac-lc.mp4 -b:2000 `
--j:./test_1280x720_h264-3500Kb_aac-lc.mp4 -b:3500 `
--j:./test_256x144_h264-120Kb_aac-lc.mp4 -b:120 `
--j:./test_512x288_h264-320Kb_aac-lc.mp4 -b:320
+
+$dir=[path to the output directory] 
+$name="test"
+
+mkdir $dir
+mg -k:adaptive "-o:$dir" `
+"-i:./$($name)_1024x576_h264-750Kb_aac-lc.mp4" -b:750 -s:0 -e:0 `
+"-j:./$($name)_256x144_h264-120Kb_aac-lc.mp4" -b:120 `
+"-j:./$($name)_512x288_h264-320Kb_aac-lc.mp4" -b:320 `
+"-j:./$($name)_1280x720_h264-1200Kb_aac-lc.mp4" -b:1200 `
+"-j:./$($name)_1280x720_h264-2000Kb_aac-lc.mp4" -b:2000 `
+"-j:./$($name)_1280x720_h264-3500Kb_aac-lc.mp4" -b:3500 
+
 ```
 
 Once you have your directory with *mpeg-dash* segment you can [publish](./serve) then in a Web Server.
