@@ -6,71 +6,103 @@
       function openitem(item)
       {
           item.classList.toggle('right_toc-selected');
+
+          var link = item.previousElementSibling.previousElementSibling;
+              link.classList.toggle('icon-chevron-right');
+              link.classList.toggle('icon-chevron-down');
       }
   </script>
   <body>
 
     {% include header.html %}
-
-    
     
         <div class="maintop">
-            
-            <div>
-                hamburgher
+            <div class="topmenu">
+
+                <div class="menu"><i class="icon-menu1"></i></div>
+                {% if site.logo %}
+                <div class="logo">
+                    <img src="{{site.logo}}"></img>
+                </div>
+                {% endif %}
+
+                <ul>
+                {% for page in site.pages  %}
+                    {% unless page.path contains 'content'  %}
+                        {% unless page.path contains 'style'  %}
+                            <li
+                                {% if page.order %}style="order:{{page.order}};"{% endif %}
+                            > <a href="{{ page.url }}">
+                                {{page.title}}
+                                </a>
+                            </li>  
+                        {% endunless %}          
+                    {% endunless %}
+                {% endfor %}
+                </ul>
             </div>
-
-            
-                   <div>MENU 1</div>
-                   <div>MENU 2</div>
-                   <div>MENU 3</div>
-            
-
         </div>
-            <div class="maincontent mainrow">
-                    <div class="leftcolumn">
-                        <div class="lefindex" >
+
+        <div class="maincontent mainrow">
+                <div class="leftcolumn">
+                    <div class="lefindex" >
+                        
+                            {% assign ptitle = page.title %}
+                            {% assign pclass = "right_toc" %}
                             
-                                {% assign ptitle = page.title %}
-                                {% assign pclass = "right_toc" %}
+
+                            {% for page in site.pages %}
+                                {% if page.path contains 'content'  %}
                                 
-
-                                {% for page in site.pages %}
-                                    {% if page.path contains 'content'  %}
+                                {% capture pageid %}tocid{% increment id_counter %}{% endcapture %}
+                                
+                                <div class="pagecontent"
+                                    {% if page.order %}style="order:{{page.order}};"{% endif %}
+                                >
+                                    <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
+                                    <a href="{{ page.url }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
+                                                    
+                                    {% assign pagehtml = page.content | markdownify%}
+                                    {% include toc.html html=pagehtml baseurl=page.url sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
                                     
-                                    {% capture pageid %}tocid{% increment id_counter %}{% endcapture %}
-                                    
-                                    <div class="pagecontent">
-                                        <i onclick="openitem(this.nextElementSibling.nextElementSibling)">></i>
-                                        <a href="{{ page.url }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
-                                                       
-                                        {% assign pagehtml = page.content | markdownify%}
-                                        {% include toc.html html=pagehtml baseurl=page.url sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
-                                        
-                                        {% if page.title == ptitle %}
-                                            <script>openitem(document.getElementById("{{pageid}}"));</script>
-                                        {% endif %}
-                                        
-                                        
-                                    </div>
+                                    {% if page.title == ptitle %}
+                                        <script>openitem(document.getElementById("{{pageid}}"));</script>
                                     {% endif %}
-                                {% endfor %}
-                        </div>
+                                    
+                                    
+                                </div>
+                                {% endif %}
+                            {% endfor %}
                     </div>
-                    <div class="centralcolumn">
-                            <h1>{{page.title}}</h1>
-                            {{ content }}
-                    </div>
-                    <!--
-                    <div class="rightcolumn">
-                            <p class="toc_title">Contents</p>
-                            {% include toc.html html=content sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
-                    </div>
-                    -->
+                </div>
+                <div class="centralcolumn">
+                        <h1>{{page.title}}</h1>
+                        {{ content }}
+                </div>
+                <!--
+                <div class="rightcolumn">
+                        <p class="toc_title">Contents</p>
+                        {% include toc.html html=content sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
+                </div>
+                -->
 
-                
-            </div>
-        <div class="mainbottom ">|</div>
+            
+        </div>
+
+
+        <div class="mainbottom ">
+                {% if site.twitter %}
+                    {% include social.html social="twitter" account=site.twitter %}
+                {% endif %}
+
+                {% if site.github %}
+                    {% include social.html social="github" account=site.github %}
+                {% endif %}
+
+                {% if site.facebook %}
+                    {% include social.html social="facebook" account=site.facebook %}
+                {% endif %}
+        </div>
   
         
     

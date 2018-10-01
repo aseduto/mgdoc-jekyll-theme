@@ -16,11 +16,13 @@ $xsmall-font-size: $small-font-size * 0.5;
 $spacing-unit:     15px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
+//$background-color: #fdfdfd;
+$body-color:       #fff;
+$background-color: #f9f9f9;
 $brand-color:      #2a7ae2;
 $info-color:       #414141;
 
-$grey-color:       #828282;
+$grey-color:       #aaa;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -30,7 +32,7 @@ $on-palm:          768px;
 
 
 $sizecolumn: 300px;
-$sizerow: 80px;
+$sizerow: 3.5em;
 
 
 
@@ -38,5 +40,6 @@ $sizerow: 80px;
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "syntax-highlighting",
+        "font"
 ;

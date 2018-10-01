@@ -29,7 +29,6 @@ body
 .centralcolumn
 {
     width: 100%;
-    background-color: #ffffff;
     margin: $spacing-unit;
 }
 
@@ -44,7 +43,8 @@ body
 
 .maintop
 {
-    background-color: blueviolet;
+    background-color:$background-color;
+    border-bottom: 1px $grey-color;
     @extend %row;
 
     display: flex;
@@ -57,9 +57,16 @@ body
 
 .mainbottom
 {
+    background-color:$background-color;
+    border-top: 1px $grey-color;
     @extend %row;
-    background-color: greenyellow;
+   
     flex: none;
+
+    display:flex;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .leftcolumn

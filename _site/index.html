@@ -18,125 +18,215 @@
       function openitem(item)
       {
           item.classList.toggle('right_toc-selected');
+
+          var link = item.previousElementSibling.previousElementSibling;
+              link.classList.toggle('icon-chevron-right');
+              link.classList.toggle('icon-chevron-down');
       }
   </script>
   <body>
 
     
-
-    
     
         <div class="maintop">
-            
-            <div>
-                hamburgher
+            <div class="topmenu">
+
+                <div class="menu"><i class="icon-menu1"></i></div>
+                
+                <div class="logo">
+                    <img src="https://mediagoom.com/img/mediagoom.png"></img>
+                </div>
+                
+
+                <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                            <li
+                                style="order:3;"
+                            > <a href="/README.html">
+                                Readme
+                                </a>
+                            </li>  
+                                  
+                    
+                
+                    
+                        
+                            <li
+                                style="order:1;"
+                            > <a href="/">
+                                Home
+                                </a>
+                            </li>  
+                                  
+                    
+                
+                    
+                                  
+                    
+                
+                    
+                        
+                            <li
+                                style="order:2;"
+                            > <a href="/page1.html">
+                                Test
+                                </a>
+                            </li>  
+                                  
+                    
+                
+                    
+                                  
+                    
+                
+                </ul>
             </div>
-
-            
-                   <div>MENU 1</div>
-                   <div>MENU 2</div>
-                   <div>MENU 3</div>
-            
-
         </div>
-            <div class="maincontent mainrow">
-                    <div class="leftcolumn">
-                        <div class="lefindex" >
+
+        <div class="maincontent mainrow">
+                <div class="leftcolumn">
+                    <div class="lefindex" >
+                        
+                            
+                            
+                            
+
                             
                                 
                                 
                                 
-
                                 
+                                <div class="pagecontent"
                                     
+                                >
+                                    <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
+                                    <a href="/content/Build.html" onclick="openitem(this.nextElementSibling);">Building mg on Linux or Windows</a>
+                                                    
                                     
-                                    
-                                    
-                                    <div class="pagecontent">
-                                        <i onclick="openitem(this.nextElementSibling.nextElementSibling)">></i>
-                                        <a href="/content/Build.html" onclick="openitem(this.nextElementSibling);">Building mg on Linux or Windows</a>
-                                                       
-                                        
-                                        <ul id="tocid9" class="right_toc">
+                                    <ul id="tocid12" class="right_toc">
   <li><a href="/content/Build.html#get-mg">Get mg</a></li>
   <li><a href="/content/Build.html#building-using-gyp">Building using gyp</a></li>
   <li><a href="/content/Build.html#build-using-autotools">Build Using Autotools</a></li>
 </ul>
-                                        
-                                        
-                                        
-                                        
-                                    </div>
                                     
+                                    
+                                    
+                                    
+                                </div>
                                 
+                            
+                                
+                                
+                                
+                                
+                                <div class="pagecontent"
                                     
+                                >
+                                    <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
+                                    <a href="/content/Encode.html" onclick="openitem(this.nextElementSibling);">Encode Files for mg</a>
+                                                    
                                     
-                                    
-                                    
-                                    <div class="pagecontent">
-                                        <i onclick="openitem(this.nextElementSibling.nextElementSibling)">></i>
-                                        <a href="/content/Encode.html" onclick="openitem(this.nextElementSibling);">Encode Files for mg</a>
-                                                       
-                                        
-                                        <ul id="tocid10" class="right_toc">
+                                    <ul id="tocid13" class="right_toc">
   <li><a href="/content/Encode.html#encode-with-bash">Encode with Bash</a></li>
   <li><a href="/content/Encode.html#encode-with-powershell">Encode with Powershell</a></li>
   <li><a href="/content/Encode.html#sample-encoding-session">Sample Encoding Session</a></li>
 </ul>
-                                        
-                                        
-                                        
-                                        
-                                    </div>
                                     
+                                    
+                                    
+                                    
+                                </div>
                                 
+                            
+                                
+                                
+                                
+                                
+                                <div class="pagecontent"
                                     
+                                >
+                                    <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
+                                    <a href="/content/Package.html" onclick="openitem(this.nextElementSibling);">Package media file for play</a>
+                                                    
                                     
-                                    
-                                    
-                                    <div class="pagecontent">
-                                        <i onclick="openitem(this.nextElementSibling.nextElementSibling)">></i>
-                                        <a href="/content/Package.html" onclick="openitem(this.nextElementSibling);">Package media file for play</a>
-                                                       
-                                        
-                                        <ul id="tocid11" class="right_toc">
+                                    <ul id="tocid14" class="right_toc">
   <li><a href="/content/Package.html#bash">Bash</a></li>
   <li><a href="/content/Package.html#powershell">Powershell</a></li>
 </ul>
-                                        
-                                        
-                                        
-                                        
-                                    </div>
                                     
-                                
                                     
-                                
                                     
-                                
                                     
+                                </div>
                                 
-                        </div>
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
                     </div>
-                    <div class="centralcolumn">
-                            <h1>Home</h1>
-                            <h1 id="home">Home</h1>
+                </div>
+                <div class="centralcolumn">
+                        <h1>Home</h1>
+                        <p>bla bla</p>
 
-<p>bla bla</p>
+                </div>
+                <!--
+                <div class="rightcolumn">
+                        <p class="toc_title">Contents</p>
+                        
+                </div>
+                -->
 
-                    </div>
-                    <!--
-                    <div class="rightcolumn">
-                            <p class="toc_title">Contents</p>
-                            <ul id="mdtoc" class="right_toc">
-  <li><a href="#home">Home</a></li>
-</ul>
-                    </div>
-                    -->
+            
+        </div>
+
+
+        <div class="mainbottom ">
+                
+                    
+
+
+<div class="bottom-social">
+<i class="icon-twitter"></i>
+<span>mediagoom</span>
+</div>
+                
 
                 
-            </div>
-        <div class="mainbottom ">|</div>
+                    
+
+
+<div class="bottom-social">
+<i class="icon-github"></i>
+<span>mediagoom</span>
+</div>
+                
+
+                
+                    
+
+
+<div class="bottom-social">
+<i class="icon-facebook"></i>
+<span>mediagoom</span>
+</div>
+                
+        </div>
   
         
     

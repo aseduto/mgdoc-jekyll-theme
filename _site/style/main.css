@@ -1,16 +1,20 @@
 html { height: 100%; }
 
 /** Basic styling */
-body { font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111; background-color: #fdfdfd; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; }
+body { font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #111; background-color: #fff; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; }
 
-.toc_title { font-weight: 700; text-align: center; }
+.topmenu div.menu, .topmenu div.logo { display: flex; flex: 0 0 auto; font-size: 2.5em; }
 
-/*
-.tree{ list-style-position: inside; list-style-type: none; margin: 0; padding: 0; 
-}
+.topmenu { width: 100%; flex: 1 1 auto; display: flex; align-items: center; }
+.topmenu div.menu { display: none; }
+.topmenu div.logo img { height: 1.2em; padding-left: 0.2em; }
+.topmenu ul { display: flex; flex-flow: row; flex-wrap: nowrap; justify-content: flex-end; align-items: center; flex: 1 1 auto; padding-right: 1em; }
+.topmenu li { flex: 0 0 auto; margin: 0.5em; }
+.topmenu li:hover { background: gray; }
+.topmenu li:active { border-style: inset; }
+.topmenu a { color: #414141; text-decoration: none; }
+.topmenu a:visited { color: #414141; }
 
-ul.tree::before { content: ''; position: absolute; height: calc(100% - 0.6em); top: 0; left: 1.5em; border-left: 1px dashed #777676; margin-right: 0.3em }
-*/
 .lefindex { margin-top: 2em; }
 
 .pagecontent { width: 16em; position: relative; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
@@ -26,21 +30,23 @@ ul.tree::before { content: ''; position: absolute; height: calc(100% - 0.6em); t
 
 li { list-style-type: none; }
 
+.bottom-social { margin: 1em; }
+
 body { display: flex; flex-direction: column; height: 100%; margin: 0px; }
 
 .maincontent { flex: 1 0 auto; }
 
-.maintop, .mainbottom { width: 100%; height: 80px; }
+.maintop, .mainbottom { width: 100%; height: 3.5em; }
 
 .leftcolumn, .rightcolumn { width: 300px; margin: 15px; }
 
-.centralcolumn { width: 100%; background-color: #ffffff; margin: 15px; }
+.centralcolumn { width: 100%; margin: 15px; }
 
 .mainrow { display: flex; flex-direction: row; width: 100%; }
 
-.maintop { background-color: blueviolet; display: flex; flex-direction: row; justify-content: flex-end; flex: 0 0 auto; }
+.maintop { background-color: #f9f9f9; border-bottom: 1px #aaa; display: flex; flex-direction: row; justify-content: flex-end; flex: 0 0 auto; }
 
-.mainbottom { background-color: greenyellow; flex: none; }
+.mainbottom { background-color: #f9f9f9; border-top: 1px #aaa; flex: none; display: flex; justify-content: space-evenly; flex-wrap: wrap; align-items: center; }
 
 .rightcolumn { background: #f9f9f9 none repeat scroll 0 0; border: 1px solid #aaa; font-size: 95%; margin-bottom: 1em; padding: 20px; width: auto; }
 .rightcolumn li, .rightcolumn ul, .rightcolumn ul li { list-style: outside none none !important; }
@@ -110,3 +116,94 @@ body { display: flex; flex-direction: column; height: 100%; margin: 0px; }
 .highlight .vg { color: #008080; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
+
+@font-face { font-family: 'icon'; src: url("../assets/icon.eot?uismz9"); src: url("../assets/icon.eot?uismz9#iefix") format("embedded-opentype"), url("../assets/icon.ttf?uismz9") format("truetype"), url("../assets/icon.woff?uismz9") format("woff"), url("../assets/icon.svg?uismz9#icon") format("svg"); font-weight: normal; font-style: normal; }
+[class^="icon-"], [class*=" icon-"] { /* use !important to prevent issues with browser extensions that change fonts */ font-family: 'icon' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.icon-file-o:before { content: "\f016"; }
+
+.icon-file-text:before { content: "\f15c"; }
+
+.icon-heart:before { content: "\f004"; }
+
+.icon-star:before { content: "\f005"; }
+
+.icon-star-o:before { content: "\f006"; }
+
+.icon-check:before { content: "\f00c"; }
+
+.icon-cog:before { content: "\f013"; }
+
+.icon-gear:before { content: "\f013"; }
+
+.icon-download:before { content: "\f019"; }
+
+.icon-tag:before { content: "\f02b"; }
+
+.icon-tags:before { content: "\f02c"; }
+
+.icon-video-camera:before { content: "\f03d"; }
+
+.icon-fast-backward:before { content: "\f049"; }
+
+.icon-backward:before { content: "\f04a"; }
+
+.icon-play:before { content: "\f04b"; }
+
+.icon-pause:before { content: "\f04c"; }
+
+.icon-stop:before { content: "\f04d"; }
+
+.icon-forward:before { content: "\f04e"; }
+
+.icon-fast-forward:before { content: "\f050"; }
+
+.icon-chevron-left:before { content: "\f053"; }
+
+.icon-chevron-right:before { content: "\f054"; }
+
+.icon-chevron-up:before { content: "\f077"; }
+
+.icon-chevron-down:before { content: "\f078"; }
+
+.icon-folder-open:before { content: "\f07c"; }
+
+.icon-bar-chart:before { content: "\f080"; }
+
+.icon-bar-chart-o:before { content: "\f080"; }
+
+.icon-twitter:before { content: "\f099"; }
+
+.icon-facebook:before { content: "\f09a"; }
+
+.icon-facebook-f:before { content: "\f09a"; }
+
+.icon-github:before { content: "\f09b"; }
+
+.icon-linkedin:before { content: "\f0e1"; }
+
+.icon-cloud-download:before { content: "\f0ed"; }
+
+.icon-cloud-upload:before { content: "\f0ee"; }
+
+.icon-instagram:before { content: "\f16d"; }
+
+.icon-windows:before { content: "\f17a"; }
+
+.icon-android:before { content: "\f17b"; }
+
+.icon-linux:before { content: "\f17c"; }
+
+.icon-google:before { content: "\f1a0"; }
+
+.icon-menu1:before { content: "\e5d2"; }
+
+.icon-devman:before { content: "\e900"; color: #800080; }
+
+.icon-node-play:before { content: "\e901"; color: #40aa6b; }
+
+.icon-mg:before { content: "\e902"; color: #082a60; }
+
+.icon-home:before { content: "\e903"; }
+
+.icon-menu:before { content: "\e9bd"; }

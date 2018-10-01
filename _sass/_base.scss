@@ -19,7 +19,7 @@ html {height: 100%;}
  body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
-    background-color: $background-color;
+    background-color: $body-color;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -28,29 +28,77 @@ html {height: 100%;}
     font-kerning: normal;
 }
 
-.toc_title {
-    font-weight: 700;
-    text-align: center;
-}
-/*
-.tree{
-    list-style-position: inside;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-   
+%menu
+{
+    display: flex;
+    flex: 0 0 auto;
+    font-size: 2.5em;
 }
 
-ul.tree::before {
-    content: '';
-    position: absolute;
-    height: calc(100% - 0.6em);
-    top: 0;
-    left: 1.5em;
-    border-left: 1px dashed #777676;
-    margin-right: 0.3em
+.topmenu{
+    
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+
+    div.menu
+    {
+        @extend %menu;
+        display: none;
     }
-*/
+
+    div.logo
+    {
+        @extend %menu;
+
+        img{
+            height: 1.2em;
+            padding-left: 0.2em;
+        }
+    }
+    
+    
+    ul{
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 auto;
+        padding-right: 1em;
+    }
+
+    li{
+        flex: 0 0 auto;
+        margin: 0.5em;
+        
+        &:hover
+        {
+            background:gray;
+        }
+        
+        &:active
+        {        
+            border-style: inset;
+        }
+    }
+
+    a
+    {
+        color: $info-color;
+        text-decoration: none;
+        &:visited
+        {
+            color: $info-color;
+        }
+
+        
+    }
+}
+
+
+
 
 .lefindex
 {
@@ -82,8 +130,7 @@ ul.tree::before {
         }
     }
 }
-
-  
+ 
 
 .right_toc
 {
@@ -131,12 +178,14 @@ ul.tree::before {
 }
 
 
-
-
-
 li
 {
     list-style-type: none;
+}
+
+.bottom-social
+{
+    margin: 1em;
 }
 
 
