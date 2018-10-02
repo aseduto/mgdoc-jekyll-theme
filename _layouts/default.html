@@ -82,7 +82,8 @@
                                     <a href="{{ page.url | prepend: site.baseurl }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
                                                     
                                     {% assign pagehtml = page.content | markdownify%}
-                                    {% include toc.html html=pagehtml baseurl=page.url sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
+                                    {% assign pageurl = page.url | prepend: site.baseurl}
+                                    {% include toc.html html=pagehtml baseurl=pageurl sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
                                     
                                     {% if page.title == ptitle %}
                                         <script>openitem(document.getElementById("{{pageid}}"));</script>
