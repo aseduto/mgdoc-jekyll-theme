@@ -1,0 +1,133 @@
+
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0px;
+}
+
+.maincontent
+{
+        flex: 1 0 auto;
+}
+
+%row
+{
+    width: 100%;
+    height: $sizerow;
+}
+
+%column
+{
+   width: $sizecolumn;
+   margin: $spacing-unit;
+   
+}
+
+.centralcolumn
+{
+    width: 100%;
+    margin: $spacing-unit;
+}
+
+.mainrow
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+
+
+.maintop
+{
+    background-color:$background-color;
+    border-bottom: 1px $grey-color;
+    @extend %row;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
+
+    flex: 0 0 auto;
+}
+
+.mainbottom
+{
+    background-color:$background-color;
+    border-top: 1px $grey-color;
+    @extend %row;
+   
+    flex: none;
+
+    display:flex;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.leftcolumn
+{
+    @extend %column;
+}
+
+.rightcolumn
+{
+    @extend %column;
+    
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    //display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+
+    li, ul,  ul li{
+        list-style: outside none none !important;
+    }
+}
+
+@include media-query($on-palm)
+{
+    .leftcolumn
+    {
+        display: none;
+        position: absolute;
+        width: 100%;
+        margin: 0em;
+
+        background-color: $info-color;
+        color: $body-color;
+        border-top: $body-color solid 2px;
+
+        a{
+            color: $body-color;
+            &:visited
+            {
+                color: $body-color;
+            }
+        }
+    }
+
+    .rightcolumn
+    {
+        display: none;
+    }
+
+    .maintop
+    {
+        justify-content: flex-start;
+    }
+}
+
+
+
+
+
+
+    
+

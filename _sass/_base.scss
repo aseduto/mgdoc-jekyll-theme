@@ -1,0 +1,246 @@
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+html {height: 100%;}
+
+/**
+ * Basic styling
+ */
+ body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background-color: $body-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+%menu
+{
+    display: flex;
+    flex: 0 0 auto;
+    font-size: 2.5em;
+}
+
+.topmenu{
+    
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+
+    div.menu
+    {
+        @extend %menu;
+        display: none;
+        i{
+            &:hover
+            {
+                background:gray;
+            }
+            
+            &:active
+            {        
+                border-style: inset;
+            }
+        }
+    }
+
+    div.logo
+    {
+        @extend %menu;
+
+        img{
+            height: 1.2em;
+            padding-left: 0.2em;
+        }
+    }
+    
+    
+    ul{
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 auto;
+        padding-right: 1em;
+    }
+
+    li{
+        flex: 0 0 auto;
+        margin: 0.5em;
+        
+        &:hover
+        {
+            background:gray;
+        }
+        
+        &:active
+        {        
+            border-style: inset;
+        }
+    }
+
+    a
+    {
+        color: $info-color;
+        text-decoration: none;
+        &:visited
+        {
+            color: $info-color;
+        }
+
+        
+    }
+}
+
+.lefindex
+{
+    margin-top: 2em;
+}
+
+.pagecontent
+{
+    i
+    {
+        cursor: pointer; 
+    }
+
+    width: 16em;
+    position: relative;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+    a
+    {
+        color: $info-color;
+        padding-left: 0.5em;
+
+        text-decoration: none;
+        &:visited
+        {
+            color: $info-color;
+        }
+    }
+}
+ 
+
+.right_toc
+{
+    display: none;
+    flex-direction: column;
+    margin-top: 0.2em;
+    padding-left: 1.8em;
+    font-size: $small-font-size;
+
+    &-selected
+    {
+        display: flex;
+    }
+
+    &::before
+    {
+        content: '';
+        top: 1.8em;
+        left: 1.5em;
+        border-left: 1px dashed #777676;
+        margin-right: 0.3em;
+        position: absolute;
+        height: calc(100% - 3.56em);
+    }
+
+    li
+    {
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        &::before
+        {
+            content: '';
+            display: inline-block;
+            position: relative;
+            width: 0.5em;
+            left: 0em;
+            top: -0.3em;
+            border-bottom: 1px dashed #777676;
+            padding-right: 0.5em;
+            
+        }
+    }
+    
+}
+
+
+li
+{
+    list-style-type: none;
+}
+
+.bottom-social
+{
+    margin: 1em;
+}
+
+@include media-query($on-palm)
+{
+    .topmenu{
+    
+        width: 100%;
+        display: block;
+        position: absolute;
+    
+        div.menu
+        {            
+            display: block;
+            float: left;
+            width: calc(50% - 1.2em);
+        }
+        
+        div.logo
+        {            
+            display: block;
+        }
+        
+        ul
+        {
+            display: none;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: $info-color;
+        }
+
+        a
+        {
+            color: $body-color;
+            &:visited
+            {
+                color: $body-color;
+            }
+        }
+
+        
+    }
+}
+
+
+
+
+
+
+
