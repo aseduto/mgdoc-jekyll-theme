@@ -23,6 +23,25 @@
               link.classList.toggle('icon-chevron-right');
               link.classList.toggle('icon-chevron-down');
       }
+
+      function displayMenu()
+      {
+          var leftcolumn = document.getElementById('leftcolumn');
+          var menulist   = document.getElementById('menulist');
+
+          if(menulist.style.display === 'none' || menulist.style.display === '')
+          {
+            menulist.style.display = 'flex';
+            leftcolumn.style.display = 'block';
+
+          }else
+          {
+            menulist.style.display = 'none';
+            leftcolumn.style.display = 'none';
+          }
+
+          leftcolumn.style.top = leftcolumn.style.top = menulist.offsetTop + menulist.offsetHeight + 'px';
+      }
   </script>
   <body>
 
@@ -31,14 +50,14 @@
         <div class="maintop">
             <div class="topmenu">
 
-                <div class="menu"><i class="icon-menu1"></i></div>
+                <div class="menu"><i class="icon-menu1" onclick="displayMenu();"></i></div>
                 
                 <div class="logo">
-                    <img src="https://mediagoom.com/img/mediagoom.png"></img>
+                    <img src="https://mediagoom.com/img/mediagoom.png" ></img>
                 </div>
                 
 
-                <ul>
+                <ul id="menulist">
                 
                     
                 
@@ -92,7 +111,7 @@
         </div>
 
         <div class="maincontent mainrow">
-                <div class="leftcolumn">
+                <div class="leftcolumn" id="leftcolumn">
                     <div class="lefindex" >
                         
                             
@@ -198,33 +217,9 @@
 
         <div class="mainbottom ">
                 
-                    
-
-
-<div class="bottom-social">
-<i class="icon-twitter"></i>
-<span>mediagoom</span>
-</div>
-                
 
                 
-                    
 
-
-<div class="bottom-social">
-<i class="icon-github"></i>
-<span>mediagoom</span>
-</div>
-                
-
-                
-                    
-
-
-<div class="bottom-social">
-<i class="icon-facebook"></i>
-<span>mediagoom</span>
-</div>
                 
         </div>
   

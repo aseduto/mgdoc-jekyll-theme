@@ -11,6 +11,25 @@
               link.classList.toggle('icon-chevron-right');
               link.classList.toggle('icon-chevron-down');
       }
+
+      function displayMenu()
+      {
+          var leftcolumn = document.getElementById('leftcolumn');
+          var menulist   = document.getElementById('menulist');
+
+          if(menulist.style.display === 'none' || menulist.style.display === '')
+          {
+            menulist.style.display = 'flex';
+            leftcolumn.style.display = 'block';
+
+          }else
+          {
+            menulist.style.display = 'none';
+            leftcolumn.style.display = 'none';
+          }
+
+          leftcolumn.style.top = leftcolumn.style.top = menulist.offsetTop + menulist.offsetHeight + 'px';
+      }
   </script>
   <body>
 
@@ -19,14 +38,14 @@
         <div class="maintop">
             <div class="topmenu">
 
-                <div class="menu"><i class="icon-menu1"></i></div>
+                <div class="menu"><i class="icon-menu1" onclick="displayMenu();"></i></div>
                 {% if site.logo %}
                 <div class="logo">
-                    <img src="{{site.logo}}"></img>
+                    <img src="{{site.logo}}" ></img>
                 </div>
                 {% endif %}
 
-                <ul>
+                <ul id="menulist">
                 {% for page in site.pages  %}
                     {% unless page.path contains 'content'  %}
                         {% unless page.path contains 'style'  %}
@@ -44,7 +63,7 @@
         </div>
 
         <div class="maincontent mainrow">
-                <div class="leftcolumn">
+                <div class="leftcolumn" id="leftcolumn">
                     <div class="lefindex" >
                         
                             {% assign ptitle = page.title %}
@@ -95,8 +114,8 @@
                     {% include social.html social="twitter" account=site.twitter %}
                 {% endif %}
 
-                {% if site.github %}
-                    {% include social.html social="github" account=site.github %}
+                {% if site.githubuser %}
+                    {% include social.html social="github" account=site.githubuser %}
                 {% endif %}
 
                 {% if site.facebook %}

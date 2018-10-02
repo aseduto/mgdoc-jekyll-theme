@@ -46,6 +46,17 @@ html {height: 100%;}
     {
         @extend %menu;
         display: none;
+        i{
+            &:hover
+            {
+                background:gray;
+            }
+            
+            &:active
+            {        
+                border-style: inset;
+            }
+        }
     }
 
     div.logo
@@ -96,9 +107,6 @@ html {height: 100%;}
         
     }
 }
-
-
-
 
 .lefindex
 {
@@ -186,6 +194,48 @@ li
 .bottom-social
 {
     margin: 1em;
+}
+
+@include media-query($on-palm)
+{
+    .topmenu{
+    
+        width: 100%;
+        display: block;
+        position: absolute;
+    
+        div.menu
+        {            
+            display: block;
+            float: left;
+            width: calc(50% - 1.2em);
+        }
+        
+        div.logo
+        {            
+            display: block;
+        }
+        
+        ul
+        {
+            display: none;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: $info-color;
+        }
+
+        a
+        {
+            color: $body-color;
+            &:visited
+            {
+                color: $body-color;
+            }
+        }
+
+        
+    }
 }
 
 

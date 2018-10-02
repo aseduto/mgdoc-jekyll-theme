@@ -7,6 +7,8 @@ body { font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color:
 
 .topmenu { width: 100%; flex: 1 1 auto; display: flex; align-items: center; }
 .topmenu div.menu { display: none; }
+.topmenu div.menu i:hover { background: gray; }
+.topmenu div.menu i:active { border-style: inset; }
 .topmenu div.logo img { height: 1.2em; padding-left: 0.2em; }
 .topmenu ul { display: flex; flex-flow: row; flex-wrap: nowrap; justify-content: flex-end; align-items: center; flex: 1 1 auto; padding-right: 1em; }
 .topmenu li { flex: 0 0 auto; margin: 0.5em; }
@@ -32,6 +34,12 @@ li { list-style-type: none; }
 
 .bottom-social { margin: 1em; }
 
+@media screen and (max-width: 768px) { .topmenu { width: 100%; display: block; position: absolute; }
+  .topmenu div.menu { display: block; float: left; width: calc(50% - 1.2em); }
+  .topmenu div.logo { display: block; }
+  .topmenu ul { display: none; flex-flow: column; justify-content: flex-start; align-items: flex-start; background-color: #414141; }
+  .topmenu a { color: #fff; }
+  .topmenu a:visited { color: #fff; } }
 body { display: flex; flex-direction: column; height: 100%; margin: 0px; }
 
 .maincontent { flex: 1 0 auto; }
@@ -51,7 +59,9 @@ body { display: flex; flex-direction: column; height: 100%; margin: 0px; }
 .rightcolumn { background: #f9f9f9 none repeat scroll 0 0; border: 1px solid #aaa; font-size: 95%; margin-bottom: 1em; padding: 20px; width: auto; }
 .rightcolumn li, .rightcolumn ul, .rightcolumn ul li { list-style: outside none none !important; }
 
-@media screen and (max-width: 768px) { .leftcolumn { display: none; }
+@media screen and (max-width: 768px) { .leftcolumn { display: none; position: absolute; width: 100%; margin: 0em; background-color: #414141; color: #fff; border-top: #fff solid 2px; }
+  .leftcolumn a { color: #fff; }
+  .leftcolumn a:visited { color: #fff; }
   .rightcolumn { display: none; }
   .maintop { justify-content: flex-start; } }
 /** Syntax highlighting styles */

@@ -96,6 +96,21 @@ body
     .leftcolumn
     {
         display: none;
+        position: absolute;
+        width: 100%;
+        margin: 0em;
+
+        background-color: $info-color;
+        color: $body-color;
+        border-top: $body-color solid 2px;
+
+        a{
+            color: $body-color;
+            &:visited
+            {
+                color: $body-color;
+            }
+        }
     }
 
     .rightcolumn
