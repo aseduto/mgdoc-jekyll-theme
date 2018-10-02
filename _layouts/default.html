@@ -51,7 +51,7 @@
                         {% unless page.path contains 'style'  %}
                             <li
                                 {% if page.order %}style="order:{{page.order}};"{% endif %}
-                            > <a href="{{ page.url }}">
+                            > <a href="{{ page.url | prepend: site.baseurl }}">
                                 {{page.title}}
                                 </a>
                             </li>  
@@ -79,7 +79,7 @@
                                     {% if page.order %}style="order:{{page.order}};"{% endif %}
                                 >
                                     <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
-                                    <a href="{{ page.url }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
+                                    <a href="{{ page.url | prepend: site.baseurl }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
                                                     
                                     {% assign pagehtml = page.content | markdownify%}
                                     {% include toc.html html=pagehtml baseurl=page.url sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
@@ -104,8 +104,6 @@
                         {% include toc.html html=content sanitize=false class="right_toc" id="mdtoc" h_min=1 h_max=6 %}
                 </div>
                 -->
-
-            
         </div>
 
 
