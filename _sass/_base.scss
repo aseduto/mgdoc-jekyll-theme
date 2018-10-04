@@ -83,6 +83,7 @@ html {height: 100%;}
     li{
         flex: 0 0 auto;
         margin: 0.5em;
+        list-style-type: none;
         
         &:hover
         {
@@ -166,6 +167,7 @@ html {height: 100%;}
 
     li
     {
+        list-style-type: none;
         overflow:hidden;
         white-space:nowrap;
         text-overflow:ellipsis;
@@ -185,11 +187,6 @@ html {height: 100%;}
     
 }
 
-
-li
-{
-    list-style-type: none;
-}
 
 .bottom-social
 {
@@ -236,6 +233,12 @@ li
 
         
     }
+}
+
+.maincontent
+{
+    width: calc(100% - 15px);
+    margin-left: 10px;
 }
 
 

@@ -29,14 +29,17 @@ body
 .centralcolumn
 {
     width: 100%;
-    margin: $spacing-unit;
+    
+    
 }
 
 .mainrow
 {
     display: flex;
     flex-direction: row;
-    width: 100%
+    width: calc(100% - 2em);
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 
