@@ -11,7 +11,15 @@
     }
 }
 
-html {height: 100%;}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+  }
+  *, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0em;
+  }
 
 /**
  * Basic styling
@@ -26,6 +34,11 @@ html {height: 100%;}
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+}
+
+p{
+    display: inline;
+    white-space: pre-line;
 }
 
 %menu
