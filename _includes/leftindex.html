@@ -1,0 +1,31 @@
+
+<div class="lefindex" >
+                        
+    {% assign ptitle = page.title %}
+    {% assign pclass = "right_toc" %}
+    
+
+    {% for page in site.pages %}
+        {% if page.path contains 'content'  %}
+        
+        {% capture pageid %}tocid{% increment id_counter %}{% endcapture %}
+        
+        <div class="pagecontent"
+            {% if page.order %}style="order:{{page.order}};"{% endif %}
+        >
+            <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
+            <a href="{{ page.url | prepend: site.baseurl }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
+                            
+            {% assign pagehtml = page.content | markdownify %}
+            {% assign pageurl = page.url | prepend: site.baseurl %}
+            {% include toc.html html=pagehtml baseurl=pageurl sanitize=false class=pclass id=pageid h_min=1 h_max=1 %}
+            
+            {% if page.title == ptitle %}
+                <script>openitem(document.getElementById("{{pageid}}"));</script>
+            {% endif %}
+            
+            
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

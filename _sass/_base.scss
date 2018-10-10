@@ -18,7 +18,7 @@ html {
   }
   *, *:before, *:after {
     box-sizing: border-box;
-    margin: 0em;
+    //margin: 0em;
   }
 
 /**
@@ -46,6 +46,12 @@ p{
     display: flex;
     flex: 0 0 auto;
     font-size: 2.5em;
+}
+
+.simbol
+{
+    font-size: 8em;
+    text-align: center;
 }
 
 .topmenu{
@@ -254,7 +260,41 @@ p{
     }
 }
 
+.btn{
 
+    border: 1px;
+    
+    border-style: solid;
+    border-radius: 5px;
+    max-width: 10em;
+    background-color: $brand-color;
+    margin-bottom: 0.5em;
+
+    &:hover
+    {
+        background-color: $text-color;
+    }
+
+    &:active
+    {
+        border-style: inset;
+    }
+       
+
+    .download-button
+    {
+        color: $body-color;
+            &:visited
+            {
+                color: $body-color;
+            }
+            
+        i{
+            margin: 1em 1em 0.3em 1em;
+
+        }
+    }
+}
 
 
 

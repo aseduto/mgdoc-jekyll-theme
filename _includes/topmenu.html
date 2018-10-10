@@ -1,0 +1,31 @@
+<div class="topmenu">
+
+    <div class="menu"><i class="icon-menu1" onclick="displayMenu();"></i></div>
+    {% if site.logo %}
+    <div class="logo">
+        <img src="{{site.logo}}" 
+        {% if site.logourl %}
+            onclick="location.href='{{site.logourl}}';"
+            class="hand"
+        {% endif %}
+        ></img>
+    </div>
+    {% endif %}
+
+    <ul id="menulist">
+    {% for page in site.pages  %}
+        {% unless page.path contains 'content'  %}
+            {% unless page.path contains 'style'  %}
+                {% unless page.hidden  %}
+                <li
+                    {% if page.order %}style="order:{{page.order}};"{% endif %}
+                > <a href="{{ page.url | prepend: site.baseurl }}">
+                    {% if page.menu %} {{page.menu}} {% else %} {{page.title}} {% endif %}
+                    </a>
+                </li>  
+                {% endunless %}  
+            {% endunless %}          
+        {% endunless %}
+    {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+<div class="mainbottom ">
+    {% if site.twitter %}
+        {% include social.html social="twitter" account=site.twitter %}
+    {% endif %}
+
+    {% if site.githubuser %}
+        {% include social.html social="github" account=site.githubuser %}
+    {% endif %}
+
+    {% if site.facebook %}
+        {% include social.html social="facebook" account=site.facebook %}
+    {% endif %}
+</div>
