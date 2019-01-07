@@ -21,7 +21,7 @@ body
 
 %column
 {
-   width: $sizecolumn;
+   max-width: $sizecolumn;
    padding: $spacing-unit;
    
 }
@@ -77,6 +77,7 @@ body
 .leftcolumn
 {
     @extend %column;
+    border-right: 1px solid $grey-color;
 }
 
 .rightcolumn
@@ -128,6 +129,12 @@ body
     {
         justify-content: flex-start;
     }
+}
+
+#maintitle
+{
+    text-align: center;
+    font-size: xx-large;
 }
 
 
