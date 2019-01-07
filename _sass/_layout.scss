@@ -22,21 +22,26 @@ body
 %column
 {
    width: $sizecolumn;
-   margin: $spacing-unit;
+   padding: $spacing-unit;
    
 }
 
 .centralcolumn
 {
     width: 100%;
-    margin: $spacing-unit;
+    padding: $spacing-unit;
+    box-sizing: border-box;
+        
 }
 
 .mainrow
 {
     display: flex;
     flex-direction: row;
-    width: 100%
+    width: 100%;
+    //width: calc(100% - 2em);
+    //margin-left: 1em;
+    //margin-right: 1em;
 }
 
 
@@ -99,6 +104,7 @@ body
         position: absolute;
         width: 100%;
         margin: 0em;
+        left:0em;
 
         background-color: $info-color;
         color: $body-color;

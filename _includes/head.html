@@ -10,3 +10,32 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     
   </head>
+  <script>
+    function openitem(item)
+    {
+        item.classList.toggle('right_toc-selected');
+
+        var link = item.previousElementSibling.previousElementSibling;
+            link.classList.toggle('icon-chevron-right');
+            link.classList.toggle('icon-chevron-down');
+    }
+
+    function displayMenu()
+    {
+        var leftcolumn = document.getElementById('leftcolumn');
+        var menulist   = document.getElementById('menulist');
+
+        if(menulist.style.display === 'none' || menulist.style.display === '')
+        {
+          menulist.style.display = 'flex';
+          leftcolumn.style.display = 'block';
+
+        }else
+        {
+          menulist.style.display = 'none';
+          leftcolumn.style.display = 'none';
+        }
+
+        leftcolumn.style.top = leftcolumn.style.top = menulist.offsetTop + menulist.offsetHeight + 'px';
+    }
+</script>
