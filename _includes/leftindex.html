@@ -14,7 +14,7 @@
             {% if page.order %}style="order:{{page.order}};"{% endif %}
         >
             <i class="icon-chevron-right" onclick="openitem(this.nextElementSibling.nextElementSibling);"></i>
-            <a href="{{ page.url | prepend: site.baseurl }}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
+            <a href="{{ page.url | prepend: site.baseurl }}" title="{{page.title}}" onclick="openitem(this.nextElementSibling);">{{page.title}}</a>
                             
             {% assign pagehtml = page.content | markdownify %}
             {% assign pageurl = page.url | prepend: site.baseurl %}
