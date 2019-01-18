@@ -2,40 +2,57 @@
     "proc" : [
 
         {
-            "name"        : "root"
+            "name"        : "changes"
           , "watch"       : ["./**/*.*", "!./**/*.md"]
-          , "execOptions" : [{"cwd": "../mediagoom.github.io"}]
-          , "exec"        : []
-          , "options"     : {"cwd": "../mediagoom.github.io"
-                              , "env":{
-                                "NODE_ENV":"production"
-                            }}
+          , "exec"        : ["bash ./spread.sh PUSH ../mg/docs", "bash ./spread.sh PUSH ../node-play/docs"]
+          }
+
+
+        , {
+            "name"        : "root"
+          , "watch"       : ["../mediagoom.github.io/_config.yml"]
+
+          , "options"     : {"cwd": "../mediagoom.github.io" , "env":{}                            
+                            }
           , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10000"]}
         }
 
+
         , {
             "name"        : "mg"
-          , "watch"       : ["./**/*.*", "!./**/*.md"]
-          , "execOptions" : [{"cwd": "../mg/docs"}]
-          , "exec"        : ["bash ./test.sh"]
-          , "options"     : {"cwd": "../mg/docs"
-                              , "env":{
-                                "NODE_ENV":"production"
-                            }}
+          , "watch"       : ["../mg/docs/_config.yml"]
+
+          , "options"     : {"cwd": "../mg/docs" , "env":{}                                  
+                            }
           , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10001"]}
         }
 
+
         , {
             "name"        : "node-play"
-          , "watch"       : ["./**/*.*", "!./**/*.md"]
-          , "execOptions" : [{"cwd": "../node-play/docs"}]
-          , "exec"        : ["bash ./test.sh"]
+          , "watch"       : ["../node-play/docs/_config.yml"]
+
           , "options"     : {"cwd": "../node-play/docs"
                               , "env":{
                                 "NODE_ENV":"production"
                             }}
           , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10002"]}
         }
+
+
+        , {
+          "name"        : "envoy"
+        , "watch"       : ["./envoy/config.yaml"]
+
+        , "options"     : { "env":{
+            "NODE_ENV":"production"
+            }}
+        
+        , "cmd"         : {"proc": "/home/alessandro/src/github/envoy/bazel-bin/source/exe/envoy-static", "args": [
+                                    "-c", "./envoy/config.yaml", "-l", "debug"
+                                    , "--log-path", "/tmp/envoy-log/log.txt"
+                                    ]}
+      }
 
 
 
@@ -45,4 +62,5 @@
     , "root" : { "url" : "http://localhost:10000", "timeout" : 8000 }
     , "mg" : { "url" : "http://localhost:10001", "timeout" : 8000 }
     , "node-play" : { "url" : "http://localhost:10002", "timeout" : 8000 }
+    
 }
