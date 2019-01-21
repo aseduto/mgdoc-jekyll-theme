@@ -20,21 +20,30 @@ static_resources:
               - match:
                   prefix: "/mg"
                 route:
-                  prefix_rewrite: "/"
-                  cluster: local_service
+                  prefix_rewrite: "/mg/"
+                  cluster: mg_jekyll
               - match:
-                  prefix: "/style"
+                  prefix: "/mg/"
                 route:
-                  cluster: local_service
+                  cluster: mg_jekyll
               - match:
-                  prefix: "/assets"
+                  prefix: "/node-play"
                 route:
-                  cluster: local_service
+                  prefix_rewrite: "/node-play/"
+                  cluster: node-play_jekyll
+              - match:
+                  prefix: "/node-play/"
+                route:
+                  cluster: node-play_jekyll
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: root_jekyll
           http_filters:
           - name: envoy.router
             config: {}
   clusters:
-  - name: local_service
+  - name: mg_jekyll
     connect_timeout: 0.25s
     type: static
     lb_policy: round_robin
@@ -42,6 +51,22 @@ static_resources:
     - socket_address:
         address: 127.0.0.1
         port_value: 10001
+  - name: node-play_jekyll
+    connect_timeout: 0.25s
+    type: static
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: 127.0.0.1
+        port_value: 10002
+  - name: root_jekyll
+    connect_timeout: 0.25s
+    type: static
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: 127.0.0.1
+        port_value: 10000
 admin:
   access_log_path: "/dev/null"
   address:

@@ -24,7 +24,10 @@
 
           , "options"     : {"cwd": "../mg/docs" , "env":{}                                  
                             }
-          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10001"]}
+          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve"
+                , "--port", "10001"
+                , "--baseurl", "/mg"
+                ]}
         }
 
 
@@ -36,7 +39,10 @@
                               , "env":{
                                 "NODE_ENV":"production"
                             }}
-          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10002"]}
+          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve" 
+          , "--port", "10002"
+          , "--baseurl", "/node-play"
+          ]}
         }
 
 
@@ -54,9 +60,6 @@
                                     ]}
       }
 
-
-
-       
     ]
 
     , "root" : { "url" : "http://localhost:10000", "timeout" : 8000 }
