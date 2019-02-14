@@ -1,0 +1,68 @@
+{
+    "proc" : [
+
+        {
+            "name"        : "changes"
+          , "watch"       : ["./**/*.*", "!./**/*.md"]
+          , "exec"        : ["bash ./spread.sh PUSH ../mg/docs", "bash ./spread.sh PUSH ../node-play/docs"]
+          }
+
+
+        , {
+            "name"        : "root"
+          , "watch"       : ["../mediagoom.github.io/_config.yml"]
+
+          , "options"     : {"cwd": "../mediagoom.github.io" , "env":{}                            
+                            }
+          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve", "--port", "10000"]}
+        }
+
+
+        , {
+            "name"        : "mg"
+          , "watch"       : ["../mg/docs/_config.yml"]
+          , "options"     : {"cwd": "../mg/docs" , "env":{}                                  
+                            }
+          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve"
+                , "--port", "10001"
+                , "--baseurl", "/mg"
+                ]}
+        }
+
+
+        , {
+            "name"        : "node-play"
+          , "watch"       : ["../node-play/docs/_config.yml"]
+
+          , "options"     : {"cwd": "../node-play/docs"
+                              , "env":{
+                                "NODE_ENV":"production"
+                            }}
+          , "cmd"         : {"proc": "bundle", "args": ["exec", "jekyll", "serve" 
+          , "--port", "10002"
+          , "--baseurl", "/node-play"
+          ]}
+        }
+
+
+        , {
+          "name"        : "envoy"
+        , "watch"       : ["./envoy/config.yaml"]
+
+        , "options"     : { "env":{
+            "NODE_ENV":"production"
+            }}
+        
+        , "cmd"         : {"proc": "/home/alessandro/src/github/envoy/bazel-bin/source/exe/envoy-static", "args": [
+                                    "-c", "./envoy/config.yaml", "-l", "debug"
+                                    , "--log-path", "/tmp/envoy-log/log.txt"
+                                    ]}
+      }
+
+    ]
+
+    , "root" : { "url" : "http://localhost:10000", "timeout" : 8000 }
+    , "mg" : { "url" : "http://localhost:10001", "timeout" : 8000 }
+    , "node-play" : { "url" : "http://localhost:10002", "timeout" : 8000 }
+    
+}
