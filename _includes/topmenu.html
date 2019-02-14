@@ -13,6 +13,11 @@
     {% endif %}
 
     <ul id="menulist">
+    {% if site.home %} 
+        <li style="order:1;"><a href="{{ site.home }}">Home</a></li>
+    {% endif %}
+
+    
     {% for page in site.pages  %}
         {% unless page.path contains 'content'  %}
             {% unless page.path contains 'style'  %}

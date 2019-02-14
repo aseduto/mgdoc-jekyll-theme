@@ -4,8 +4,8 @@
   "description": "a jekyll theme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    , "start": "devman"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "devman"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "url": "https://github.com/aseduto/mgdoc-jekyll-theme/issues"
   },
   "homepage": "https://github.com/aseduto/mgdoc-jekyll-theme#readme",
-  "dependencies": {
-    "@mediagoom/devman": "0.0.8"
+  "dependencies": {},
+  "devDependencies": {
+    "@mediagoom/devman": "0.0.9"
   }
 }
