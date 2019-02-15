@@ -37,7 +37,7 @@ html {
 }
 
 p{
-    display: inline;
+    //display: inline;
     white-space: pre-line;
 }
 
@@ -132,9 +132,11 @@ p{
     }
 }
 
-.lefindex
+.leftindex
 {
     margin-top: 2em;
+    display: flex;
+    flex-direction: column;
 }
 
 .hand{
